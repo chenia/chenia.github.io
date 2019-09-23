@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Chenia&#39;s Blog</title>
+  
+  <subtitle>Tomorrow is another chance</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-08-09T06:54:47.704Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>chenia</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux命令</title>
+    <link href="http://yoursite.com/2019/08/09/Linux--%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2019/08/09/Linux--命令/</id>
+    <published>2019-08-09T07:04:54.100Z</published>
+    <updated>2019-08-09T06:54:47.704Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux目录结构"><a href="#Linux目录结构" class="headerlink" title="Linux目录结构"></a>Linux目录结构</h1><p> <strong>/——-bin/boot/dev/etc/home/root/lib/sbin/usr/var/…</strong></p><blockquote></blockquote><ul><li>bin(binaries)：存放二进制可执行文件</li><li>sbin(super user binaries)：存放二进制可执行文件，只有root才能访问</li><li>etc(etcetera)：存放系统配置文件   *</li><li>usr(unix shared resources)：用于存放共享的系统资源   *</li><li>home：存放用户文件的根目录   *  —–每个用户的根目录的存放的位置，home下创建每个用户的根目录</li><li>root：超级用户文件的根目录</li><li>dev(devices)：用于存放设备文件</li><li>lib(library)：存放跟文件系统中的程序运行所需要的共享库及内核模块</li><li>mnt(mount)：系统管理员安装临时文件系统的安装点</li><li>boot：存放用于系统引导时的各种文件</li><li>tmp(temporary)：用于存放各种临时文件</li><li>var(variable)：用于存放运行时需要改变数据的文件    </li></ul><p><strong>常用命令</strong></p><blockquote><ul><li>pwd显示所在的文件夹</li><li>ls显示所在文件下的所有文件</li><li>clear 清除界面内容</li><li>cd usr 切换到该目录下的usr目录</li><li>cd ../ 切换到上一层目录</li><li>cd / 切换到系统根目录</li><li>cd ~ 切换到用户主目录</li><li>cd - 切换到上一个所在目录</li></ul></blockquote><h1 id="目录（文件夹）的操作命令（增删改查）"><a href="#目录（文件夹）的操作命令（增删改查）" class="headerlink" title="目录（文件夹）的操作命令（增删改查）"></a>目录（文件夹）的操作命令（增删改查）</h1><h2 id="增加目录-文件夹-的操作"><a href="#增加目录-文件夹-的操作" class="headerlink" title="增加目录(文件夹)的操作"></a>增加目录(文件夹)的操作</h2><blockquote><ul><li>mkdir 文件夹名称</li><li>mkdir 上一级目录名称 文件夹名称</li></ul></blockquote><h2 id="查看目录"><a href="#查看目录" class="headerlink" title="查看目录"></a>查看目录</h2><blockquote><ul><li>ls  ：可以看到该目录下的所有的目录和文件</li><li>ls -a ：可以看到该目录下的所有文件和目录，包括隐藏的</li><li>ls -l  ：可以看到该目录下的所有目录和文件的详细信息   ls -l 可以缩写为ll</li></ul></blockquote><h2 id="查找目录（文件夹）"><a href="#查找目录（文件夹）" class="headerlink" title="查找目录（文件夹）"></a>查找目录（文件夹）</h2><blockquote><ul><li>find /目录名称 参数：查找目录名称下的带“参数”相关的文件</li><li>find /root -name ‘<em>test</em>‘：在root文件夹下找名字带test的文件</li></ul></blockquote><h2 id="移动目录的位置—剪切"><a href="#移动目录的位置—剪切" class="headerlink" title="移动目录的位置—剪切"></a>移动目录的位置—剪切</h2><blockquote><ul><li>mv 目录名称 目录的新位置</li><li>mv语法不仅可以对目录进行剪切操作，对文件和压缩包等也可以进行剪切操作</li></ul></blockquote><h2 id="拷贝目录"><a href="#拷贝目录" class="headerlink" title="拷贝目录"></a>拷贝目录</h2><blockquote><ul><li>cp -r 目录名称 目录拷贝的目标位置：-r表示递归，因为目录下可能有多个文件</li><li>cp命令不仅可以拷贝目录还可以拷贝文件、压缩包等，拷贝文件和压缩包时不用写-r递归</li></ul></blockquote><h2 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h2><blockquote><ul><li>rm [-rf] 目录</li></ul></blockquote><h1 id="文件的操作命令（增删改查）"><a href="#文件的操作命令（增删改查）" class="headerlink" title="文件的操作命令（增删改查）"></a>文件的操作命令（增删改查）</h1><h2 id="文件的创建"><a href="#文件的创建" class="headerlink" title="文件的创建"></a>文件的创建</h2><blockquote><ul><li>touch 文件名称 （空文件）</li></ul></blockquote><h2 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h2><blockquote><ul><li>cat/more/less/tail 文件</li><li>cat只能查看最后一屏</li><li>more可以显示百分比，enter可以向下一行，空格可以向下一页，q可以退出查看</li><li>less可以使用键盘上的</li><li>tail的使用：tail -10 看最后10行</li><li>tail -f：可以对某个文件进行动态监控，例如tomcat的日志文件会随着程序的运行，日志会变化，<br>可以使用tail -f catalina.log监控文件的变化</li></ul></blockquote><p>##修改文件的内容</p><blockquote><ul><li>vim 文件</li><li>在实际的开发中，使用vim编辑器主要的作用就是修改配置文件</li><li>操作步骤：vim 文件—–&gt;进入文件—–&gt;命令模式—–&gt;按i进入编辑模式—–&gt;编辑文件—–&gt;按Esc进入底行模式—-&gt;输入:wq/q!</li><li>wq：写入并保存退出</li><li>q!：强制退出</li></ul></blockquote><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><blockquote><ul><li>同目录删除：rm -rf 文件</li></ul></blockquote><h1 id="压缩文件的操作命令"><a href="#压缩文件的操作命令" class="headerlink" title="压缩文件的操作命令"></a>压缩文件的操作命令</h1><h2 id="打包并压缩文件"><a href="#打包并压缩文件" class="headerlink" title="打包并压缩文件"></a>打包并压缩文件</h2><blockquote><p>Linux中的打包文件一般是以.tar结尾的，压缩的文件一般以.gz结尾的<br>而一般打包和压缩是一起进行的，打包并压缩后的文件的后缀名一般.tar.gz</p></blockquote><blockquote><ul><li>tar -zcvf 打包压缩后的文件名 要打包压缩的文件</li><li>其中：z：调用gzip压缩命令进行压缩<pre><code>c：打包文件v：显示运行过程f：指定文件名</code></pre></li><li>示例：打包并压缩/test下的所有文件 压缩后的压缩包指定名称为xxx.tar.gz：tar -zcvf xxx.tar.gz aaa.txt bbb.txt ccc.txt  或者  tar -zcvf xxx.tar.gz /test/*</li></ul></blockquote><h2 id="解压压缩包"><a href="#解压压缩包" class="headerlink" title="解压压缩包"></a>解压压缩包</h2><blockquote><ul><li>tar [-xvf] 压缩文件</li><li>其中：x：代表解压</li><li>示例：将/test下的xxx.tar.gz解压到当前目录下</li><li>tar -xvf xxx.tar.gz</li><li>示例：将/test下的xxx.tar.gz解压到根目录/usr下</li><li>tar -xvf xxx.tar.gz -C /usr ——-&gt;C代表指定解压的位置</li></ul></blockquote><h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><h2 id="显示当前所在位置"><a href="#显示当前所在位置" class="headerlink" title="显示当前所在位置"></a>显示当前所在位置</h2><blockquote><ul><li>pwd</li></ul></blockquote><h2 id="搜索命令"><a href="#搜索命令" class="headerlink" title="搜索命令"></a>搜索命令</h2><blockquote><ul><li>grep 要搜索的字符串 要搜索的文件</li></ul></blockquote><h2 id="管道命令"><a href="#管道命令" class="headerlink" title="管道命令"></a>管道命令</h2><blockquote><ul><li>|  将前一个命令的输出作为本次目录的输入</li><li>示例：查看当前系统中所有的进程中包括system字符串的进程<br>ps -ef | grep system</li></ul></blockquote><h2 id="查看系统中的进程"><a href="#查看系统中的进程" class="headerlink" title="查看系统中的进程"></a>查看系统中的进程</h2><blockquote><ul><li>ps -ef</li></ul></blockquote><h2 id="杀死进程"><a href="#杀死进程" class="headerlink" title="杀死进程"></a>杀死进程</h2><blockquote><ul><li>kill -9 进程的pid</li></ul></blockquote><h2 id="网络通信命令"><a href="#网络通信命令" class="headerlink" title="网络通信命令"></a>网络通信命令</h2><blockquote><ul><li>查看当前系统的网卡信息：ifconfig</li><li>查看与某台机器的连接情况：ping</li><li>查看当前系统的端口使用：netstat - an</li></ul></blockquote><h1 id="Linux的权限命令"><a href="#Linux的权限命令" class="headerlink" title="Linux的权限命令"></a>Linux的权限命令</h1><blockquote><ul><li>权限是Linux中的重要概念，每个文件/目录等都具有权限</li><li>通过ls-l可以查看某个目录下的文件后目录的权限</li></ul></blockquote><blockquote><ul><li>r w x r w x r - -<br>0：文件类型  d表示文件夹 -表示文件  l表示链接（可以认为是win中的快捷方式)<br>后面的9位分为3组，每3位置一组，分别代表属主的权限，与当前用户同组的用户的权限，其他用户的权限</li></ul><ul><li>r：代表权限是可读，r也可以用数字4表示<br>w：代表权限是可写，w也可以用数字2表示<br>x：代表权限是可执行，x也可以用数字1表示</li></ul></blockquote><blockquote><ul><li>1：读取权<br>2：写入权—–属主权限：文件属于谁的那个权限<br>3：执行权<br>4、5、6：属组权限：同一组的权限<br>7、8、9：其他用户权限</li></ul></blockquote><h2 id="修改文件-目录的权限的命令"><a href="#修改文件-目录的权限的命令" class="headerlink" title="修改文件/目录的权限的命令"></a>修改文件/目录的权限的命令</h2><blockquote><ul><li>chmod u=<strong><em>,g=</em></strong>,o=*** 文件名</li><li>示例：修改/test下的aaa.txt的权限为属主有全部权限，属主所在的组有读写的权限，其他用户只有读的权限<br>chmod u=rwx,g=rw,o=r aaa.txt 或 chmod 761 aaa.txt</li></ul></blockquote><h1 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h1><blockquote><p>VIM命令配置<br>查看网卡配置   cat/etc/sysconfig/network-scripts/ifcfg-eth0</p></blockquote><p><strong>概要信息：</strong></p><blockquote><ul><li>DEVICE=eth0</li><li>TYPE=Ethemet</li><li>ONBOOT=yes</li><li>BOOTPROTO=static</li><li>IPADDR=192.168.44.100</li><li>GATEWAY=192.168.44.2</li><li>NETMASK=255.255.255.0</li></ul></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Linux目录结构&quot;&gt;&lt;a href=&quot;#Linux目录结构&quot; class=&quot;headerlink&quot; title=&quot;Linux目录结构&quot;&gt;&lt;/a&gt;Linux目录结构&lt;/h1&gt;&lt;p&gt; &lt;strong&gt;/——-bin/boot/dev/etc/home/root/li
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux介绍</title>
+    <link href="http://yoursite.com/2019/08/09/Linux--%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://yoursite.com/2019/08/09/Linux--介绍/</id>
+    <published>2019-08-09T07:04:54.086Z</published>
+    <updated>2019-09-23T06:50:55.370Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux的概述"><a href="#Linux的概述" class="headerlink" title="Linux的概述"></a>Linux的概述</h1><blockquote><p>Linux是基于Unix的开源免费的操作系统，由于系统的稳定性和安全性几乎成为程序代码运行的最佳系统环境。Linux是由Linus Torvalds（林纳斯·托瓦兹）起初开发的，由于源代码的开放性，现在已经衍生出了千上百种不同的Linux系统。<br>Linux系统的应用非常广泛，不仅可以长时间的运行我们编写的程序代码，还可以安装在各种计算机硬件设备中，比如手机、平板电脑、路由器等。尤其在这里提及一下，我们熟知是Android程序最底层就是运行在linux系统上的。</p></blockquote><h1 id="Linux的分类"><a href="#Linux的分类" class="headerlink" title="Linux的分类"></a>Linux的分类</h1><ul><li><p>Linux根据市场需求不同，基本分为两个方向：</p><ol><li>图形化界面版：注重用户体验，类似window操作系统，但目前成熟度不够</li><li>服务器版：没有好看的界面，是以在控制台窗口中输入命令操作系统的，类似于DOS，是我们假设服务器的最佳选择</li></ol></li><li><p>Linux根据原生程度，又分为两种：</p><ol><li>内核版本：在Linus领导下的内核小组开发维护的系统内核的版本号</li><li>发行版本：一些组织或公司在内核版基础上进行二次开发而重新发行的版本</li><li>Linux发行版本不同，又可以分为n多种：<pre><code>&gt;ubuntu&gt;CentOs&gt;redhat&gt;...</code></pre></li></ol></li></ul><h1 id="Linux的安装"><a href="#Linux的安装" class="headerlink" title="Linux的安装"></a>Linux的安装</h1><h2 id="1-虚拟机的安装"><a href="#1-虚拟机的安装" class="headerlink" title="1. 虚拟机的安装"></a>1. 虚拟机的安装</h2><blockquote><p>因为Linux也是一个系统，本质上跟我们电脑的Window没有区别，所以我们要学习Linux就首先将我们电脑的Window系统换成Linux系统，或者在我们电脑上安装双系统。其实我们可以在我们电脑上安装一个软件，这个软甲可以模拟一台或多台虚拟的电脑机器，这就是虚拟机。</p></blockquote><p><strong>常见的虚拟器：</strong></p><ul><li>VMware（威睿）公司的虚拟机软件，功能强大，收费</li><li>VitrualBox 虚拟机软件  Oracle公司的虚拟机软件，免费商品</li></ul><h2 id="2-Ubuntu的安装"><a href="#2-Ubuntu的安装" class="headerlink" title="2. Ubuntu的安装"></a>2. Ubuntu的安装</h2><blockquote><p>具体步骤询问LittleSun</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Linux的概述&quot;&gt;&lt;a href=&quot;#Linux的概述&quot; class=&quot;headerlink&quot; title=&quot;Linux的概述&quot;&gt;&lt;/a&gt;Linux的概述&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Linux是基于Unix的开源免费的操作系统，由于系统的稳定性和安
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git&amp;&amp;GitHub</title>
+    <link href="http://yoursite.com/2019/08/09/Git&amp;GitHub/"/>
+    <id>http://yoursite.com/2019/08/09/Git&amp;GitHub/</id>
+    <published>2019-08-09T07:04:54.071Z</published>
+    <updated>2019-08-09T06:53:41.991Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>Git是一个版本管理工具，是可以在电脑不联网的情况下，只在本地使用的一个版本管理工具，其作用就是可以更好的管理程序。</p><h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><p>GitHub是一个网站，可以在github上建立一个网上的仓库，可以把代码提交到网上，这样别人可以看到你的代码，同时别人也可以帮你修改你的代码，这种开源的方式非常方便程序员之间的交流和学习。 </p><h1 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h1><p>Github Page是Github 提供的一种免费的静态网页托管服务，可以用来托管博客、项目官网等静态网页。支持 Jekyll、Hugo、Hexo 编译静态资源。</p><h1 id="TortoiseGit"><a href="#TortoiseGit" class="headerlink" title="TortoiseGit"></a>TortoiseGit</h1><p>TortoiseGit是一个开放的GIT版本控制系统的源客户端。TortoiseGit 简称 tgit, 中文名海龟Git。海龟Git只支持神器 Windows系统。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Git&quot;&gt;&lt;a href=&quot;#Git&quot; class=&quot;headerlink&quot; title=&quot;Git&quot;&gt;&lt;/a&gt;Git&lt;/h1&gt;&lt;p&gt;Git是一个版本管理工具，是可以在电脑不联网的情况下，只在本地使用的一个版本管理工具，其作用就是可以更好的管理程序。&lt;/p&gt;
+&lt;h1
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>不如去闯</title>
+    <link href="http://yoursite.com/2019/08/09/%E4%B8%8D%E5%A6%82%E5%8E%BB%E9%97%AF--%E6%9D%8E%E6%9F%98%E8%BF%9C/"/>
+    <id>http://yoursite.com/2019/08/09/不如去闯--李柘远/</id>
+    <published>2019-08-09T07:04:54.055Z</published>
+    <updated>2019-09-23T06:05:59.257Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="成长使用手册—26tips"><a href="#成长使用手册—26tips" class="headerlink" title="成长使用手册—26tips"></a>成长使用手册—26tips</h1><ul><li><p>给别人帮忙时，不要老计算着对方能反过来给自己什么好处。若是举手之劳，能帮就帮；赠人玫瑰，手有余香。当然，斗米恩担米仇，助人为乐也得有个底限，不要让自己的好心帮助变成别人心里的理所当然，进而无度索取。</p></li><li><p>不要用双重标准待人。对自己仁慈心软各种宽松，对别人苛刻挑剔各种吐槽是没有品的表现，甚至会是个灾难。</p></li><li><p>Be real, don’t be fake. 看得远些，“真实不作假”不会有错。如果你尝试掩饰和伪装自己，短时间里可能可以糊弄别人，但再无缝的糖衣外壳也有融化的那一天。人都不傻，日子长了，你描绘的人设会瓦解崩坏，别人总能看到你的真面目。</p></li><li><p>我们可以把别人当作参照物和榜样，但不要总拿自己和别人比。比来比去容易乱了阵脚。更好的做法，是把今天的自己和昨天、上个月、半年前、一年前…的自己比，看看发生了什么变化、取得了什么进步。The true nobility is in being superior to your previous self.</p></li><li><p>这个世界上总会有人看不起你、中伤你。遭别人冷眼对待时，不要立刻就气得不行，或者黯然神伤。稳住自己，微笑对待别人的看不上瞧不起，有一天让他们为曾经对你的轻视而后悔。不论是在工作，学习，还是爱情中。</p></li><li><p>初次与人相逢时，不要轻易把对方想成坏人。对人的假设好一些，我们更容易收获真诚的朋友和靠谱的工作伙伴。</p></li><li><p>当然，这个世界鱼龙混杂，防人之心不可无。不是所有自来熟的人都是厚道的人。要提防那些刚刚认识就能对你嘘寒问暖称兄道弟，一口一个“姐姐”“弟～”“哥～”称呼你的人。</p></li><li><p>每个人骨子里都有自我的一面，都想为自己实现利益最大化。但与人合作时，一定要记得双赢。双赢。双赢。允许别人获利，甚至让对方多赚一点也可以。不要以剥夺甚至榨干别人的利益为前提，去为自己谋利，那样太没品，太短视。</p></li><li><p>懂得计划开支固然好，但千万别过度精打细算。抠门的人从来都不可爱。经济条件允许的情况下，对人大方一点，不要过于计较和别人、尤其是和亲人好友相处时的得失，多请顿饭多送件礼物不是坏事。抠门的人会觉得省钱让自己赚到了，但从长远看，吝啬的标签会让他损失更多。</p></li><li><p>趁年轻的时候多尝试些“野”的事儿，比如去探秘丛林，去攀登雪山，又比如毕业前裸奔。“不羁放纵爱自由”在年少轻狂时最能被原谅。年轻不疯，更待何时？不要等老了再因为没做过一些事而倍感遗憾。（前提条件：正当的事；不要犯罪犯法）</p></li><li><p>健身，首先是为了让身体更好，然后是塑形。如果只是为了练出腹肌马甲线、获得炫耀的资本而去挥汗，你无法真正享受到运动之乐。刚开始健身时不要每天对着镜子照，看自己的肌肉是不是明显了一些？小腿是不是瘦了一点？体型的变化几乎总是比我们希望的要慢。</p></li><li><p>你越想讨好别人，越谄媚，别人可能越看不起你。气场是此消彼长的。做你自己，不卑不亢，最好。</p></li><li><p>不要怕吃亏。比如初入职场的小兵，别因为自己干得活比别人多和累就牢骚满腹。今天的辛苦总有一天会给予你回报。</p></li><li><p>少对别人评头论足，尤其不要在不熟的人面前吐槽另一个人。世界很小，你咬牙切齿骂着的那个人和听你说话的人说不定就是亲戚或死党。如果实在忍不住评论别人，就尽量说别人的好。</p></li><li><p>别人托付给你的事，哪怕再小，也不能随便抛到脑后。更不要轻易给别人承诺什么，一次两次不兑现也许没事，超过三次你就可能被永久拉黑。</p></li><li><p>每天比别人早起半小时，做些有趣有意义的事，比如晨跑读书，或者哪怕就是洗个时间充裕的热水澡、从容地吃顿营养丰富的早餐，你的一天也会被点亮。</p></li><li><p>从18岁开始，时间会变得越来越快，呲溜一下就开始奔3、奔4了，所以每一年都别辜负。我们不用奢求一直大踏步跨越式发展，但起码别原地踏步。</p></li><li><p>越来越欣赏“精于此道，以此为生”的人。潜心在一个领域耕耘、做好一件事足矣。不要这山望着那山高，不断变换职业/学业车道，那样可能越换越差。</p></li><li><p>不管是什么工作，都一定有让人抓狂厌烦的地方。遇到无聊无趣无用的工作任务时，忍着干。只要这份工作能让你学到东西，收获丰富（尤其是技能长进），并有好的发展前景，就值得做下去。</p></li><li><p>取得了一些成绩以后更要谦逊谨慎。沾沾自喜得意忘形是很危险的事。永远有比我们厉害的人。踏实自己前一阶段的成绩，持续精进爬高。</p></li><li><p>不要把别人的帮忙看作理所当然。大家都很忙，没人有义务永远无私帮你，所以我们得感恩。举个例子：国人在盗版猖獗的时代有点被惯坏了，从电影到音乐到书都能轻易从网上找到免费资源，于是在版权意识进步和知识付费兴起的年代，看到一些网文要收费才能阅读就觉得“好气啊，作者真吝啬”。你可曾想过并尊重他的付出？</p></li><li><p>朋友总是来了又去，再亲密无间的人都可能一刹那或渐渐变成陌路。很少有人能一直在我们生命中永驻。离开的不一定是友尽，也许过一段时间又能重逢。建立一个密友圈，人不用多，四五六七八九十个人足够，不一定都是一种人，比如有人可以陪你幼稚玩耍嬉戏，完全不用动脑；有人是良师，能和你深度对话，给你出谋划策。</p></li><li><p>不要轻易觉得自己好孤单好寂寞，不要每天求抱抱求安慰要人陪。人是群体动物，但更是一个个“个体”。独处怎么了？没人在你身旁又能怎样啊？试着享受、并不虚度一个人的时光。摆脱孤独的办法，是让自己的内心和实力变强大。</p></li><li><p>抱怨在大多数时候都是无能的表现，会给自己减分。就算再不爽再想咆哮，也先 hold 两秒，想想看，是否真的有必要抱怨？Problem solver 远远好过 complainer .</p></li><li><p><del>只有这条关于爱情：你喜欢一个人喜欢到疯到爆炸，但Ta对你却完全无感，怎么办？及时止损。不要念想着你能通过种种努力让Ta对你产生对等的爱意。被打动的并不是爱，勉强在一起之后双方都会心累。</del></p></li><li><p>不要为自己不好的出身和学历感到自卑，学历高也不是一件多么值得自喜的事。往后几十年的人生里，欠佳的学历不会成为永恒的绊脚石，而优秀的学历也无法永远为你保驾护航。</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;成长使用手册—26tips&quot;&gt;&lt;a href=&quot;#成长使用手册—26tips&quot; class=&quot;headerlink&quot; title=&quot;成长使用手册—26tips&quot;&gt;&lt;/a&gt;成长使用手册—26tips&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;给别人帮忙时，不要老计算着对方能反
+      
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://yoursite.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="生活" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+</feed>
