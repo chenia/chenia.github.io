@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Chenia&#39;s Blog">
 <meta property="og:description" content="常量\枚举\结构常量 定义一个常量 ：const 类型 常量名 = 常量值；  枚举 定义一个枚举的位置在命名空间或者类里面，一般写在命名空间下，为了能使在 此命名空间下的所有类都可以访问枚举  确定数量、确定值的几个取值可以使用枚举 语法： [public] enum 枚举名 {     值1；     值2；     ……. } 注意：  枚举名的命名规范必须符合Pascal的命名规范 和字符">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T00:48:07.499Z">
+<meta property="og:updated_time" content="2019-09-30T05:15:50.381Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#学习阶段二">
 <meta name="twitter:description" content="常量\枚举\结构常量 定义一个常量 ：const 类型 常量名 = 常量值；  枚举 定义一个枚举的位置在命名空间或者类里面，一般写在命名空间下，为了能使在 此命名空间下的所有类都可以访问枚举  确定数量、确定值的几个取值可以使用枚举 语法： [public] enum 枚举名 {     值1；     值2；     ……. } 注意：  枚举名的命名规范必须符合Pascal的命名规范 和字符">
@@ -302,7 +302,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-30T08:48:07+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-30T13:15:50+08:00">
                 2019-09-30
               </time>
             
@@ -330,7 +330,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6.5k
+                  6.6k
                 </span>
               
 
@@ -757,304 +757,400 @@ Student ss = (Student)p;
 <li>var 可以通过变量的推断变量的类型</li>
 </ul>
 <blockquote>
-<p>GetType()：获得变量的数据类型</p>
+<p><code>GetType()</code>：获得变量的数据类型</p>
 </blockquote>
-<h1><span id="file类-静态类">File类 静态类</span></h1><p><strong>在System.IO命名空间下</strong></p>
-<ul>
+<h1><span id="file类">File类</span></h1><ul>
+<li>说明<ul>
+<li>静态类，在System.IO命名空间下</li>
 <li>静态类不能创建对象</li>
 <li>静态类的成员都是静态成员，可以直接类名.成员调用</li>
+<li>File类操作文件的类（不是文件夹)</li>
 </ul>
-<p><strong>File类：操作文件的类（不是文件夹）</strong></p>
-<p><code>OpenFileDialog ofd = new OpenFileDialog();</code></p>
-<p><strong>File.方法：</strong></p>
+</li>
+</ul>
 <ul>
-<li>Exits(文件地址)：判断文件是否存在</li>
-<li>Create(文件地址)：创建文件</li>
-<li>Delete(文件地址)：删除文件</li>
-<li>Copy(源文件地址,复制文件地址)：复制文件</li>
-<li>Move(源文件地址,复制文件地址)：移动文件</li>
+<li><p>方法</p>
+<ul>
+<li><code>Exits(文件地址)</code>：判断文件是否存在</li>
+<li><code>Create(文件地址)</code>：创建文件</li>
+<li><code>Delete(文件地址)</code>：删除文件</li>
+<li><code>Copy(源文件地址,复制文件地址)</code>：复制文件</li>
+<li><p><code>Move(源文件地址,复制文件地址)</code>：移动文件</p>
+</li>
+<li><p><code>OpenFileDialog ofd = new OpenFileDialog();</code></p>
+</li>
 </ul>
-<p><strong>读取文件：</strong></p>
+</li>
+<li><p>读取文件</p>
 <ol>
-<li><p>String[]  str  =  ReadAllLines(文件地址,读取文件的编码方式)：一行一行读取文件，返回值为字符串数组</p>
+<li><p><code>String[]  str  =  ReadAllLines(文件地址,读取文件的编码方式)</code>：一行一行读取文件，返回值为字符串数组</p>
 <pre><code> Encoding.Default：默认方式
  Encoding.UTF-8
  Encoding.Unicode
 </code></pre></li>
-<li><p>String str = ReadAllText(文件地址,读取文件的编码方式)：读取整个文本，返回值为字符串<br><code>ReadAllLines()</code>和<code>ReadAllText()</code>只能读取txt文件</p>
+<li><p><code>String str = ReadAllText(文件地址,读取文件的编码方式)</code>：读取整个文本，返回值为字符串</p>
+<p> <code>ReadAllLines()</code>和<code>ReadAllText()</code>只能读取txt文件</p>
 </li>
 </ol>
-<ol>
-<li>byte[] buffer = ReadAllBytes(文件地址);buffer里存的都是数字，需要将buffer转换成字符串，使用<code>string  str  =Enconding.Default.GetString(buffer)</code>;</li>
-</ol>
-<p><code>ReadAllBytes()</code>可以操作任何格式的文件</p>
-<pre><code>Enconding.Default.GetString();
-Enconding.UTF-8.GetString();
-Enconding.Unicode.GetString();
-Enconding.GetEncoding(“GBK”).GetString();
+</li>
+</ul>
+<pre><code>3. `byte[] buffer = ReadAllBytes(文件地址)`;buffer里存的都是数字，需要将buffer转换成字符串，使用`string  str  =Enconding.Default.GetString(buffer);`
+
+    `ReadAllBytes()`可以操作任何格式的文件
+
+        Enconding.Default.GetString();
+        Enconding.UTF-8.GetString();
+        Enconding.Unicode.GetString();
+        Enconding.GetEncoding(“GBK”).GetString();
 </code></pre><ul>
+<li><p>单位转换</p>
+<ul>
 <li>1024byte=1kb</li>
 <li>1024kb=1M</li>
 </ul>
+</li>
+</ul>
 <h1><span id="导入命名空间的快捷方式">导入命名空间的快捷方式</span></h1><ol>
-<li>使用快捷键 alt+shift+F10</li>
+<li>使用快捷键<code>alt+shift+F10</code></li>
 <li>使用鼠标的方式</li>
 </ol>
-<h1><span id="编码">编码</span></h1><blockquote>
+<h1><span id="编码">编码</span></h1><p>文本文件编码，文本文件有不同的存储方式，将字符串以什么样的形式保存为二进制，这个就是编码，UTF-8、ASCII、Unicode等，如果出现乱码一般就是编码的问题，文本文件相关的函数一般都有Encoding类型的参数，取得编码的方式：<code>Encoding.Default</code>、<code>Encoding.UTF8</code>、<code>Encoding.GetEncoding(“GBK”)</code></p>
+<blockquote>
 <p>乱码的原因：保持文件所采取的编码格式与打开文件的编码格式不一致</p>
-<p>文本文件编码，文本文件有不同的存储方式，将字符串以什么样的形式保存为二进制，这个就是编码，UTF-8、ASCII、Unicode等，如果出现乱码一般就是编码的问题，文本文件相关的函数一般都有Encoding类型的参数，取得编码的方式：<code>Encoding.Default</code>、<code>Encoding.UTF8</code>、<code>Encoding.GetEncoding(“GBK”)</code></p>
 </blockquote>
 <p>输出<code>Encoding.GetEncodings()</code>，所有的编码</p>
 <p><strong>常用的静态方法：</strong></p>
 <ul>
-<li>void  AppendAllText(string path,string contents,编码方式)：将文本contents附加到文件path中</li>
-<li>bool  Exists(string path)：判断文件path是否存在</li>
-<li>string[]  ReadAllLines(string path)：读取文本文件到字符串数组中</li>
-<li>string  ReadAllText(string path)：读取文本文件到字符串中</li>
-<li>void  WriteAllText(string path,string contents)：将文本contents保持到文件path中，会覆盖旧内容</li>
-<li>void  WriteAllLines(string path,string[] contents)：将字符串数组逐行保存到文件path中，会覆盖旧内容</li>
+<li><code>void  AppendAllText(string path,string contents,编码方式)</code>：将文本<code>contents</code>附加到文件<code>path</code>中</li>
+<li><code>bool  Exists(string path)</code>：判断文件<code>path</code>是否存在</li>
+<li><code>string[]  ReadAllLines(string path)</code>：读取文本文件到字符串数组中</li>
+<li><code>string  ReadAllText(string path)</code>：读取文本文件到字符串中</li>
+<li><code>void  WriteAllText(string path,string contents)</code>：将文本<code>contents</code>保持到文件<code>path</code>中，会覆盖旧内容</li>
+<li><code>void  WriteAllLines(string path,string[] contents)</code>：将字符串数组逐行保存到文件<code>path</code>中，会覆盖旧内容</li>
 </ul>
-<h1><span id="directory类">Directory类</span></h1><blockquote>
-<p>Directory类：操作文件夹</p>
-<p>Directory类 静态类  在System.IO命名空间下</p>
-<p>静态类不能创建对象</p>
-<p>静态类的成员全部为静态成员，直接类名调用</p>
-</blockquote>
+<h1><span id="directory类">Directory类</span></h1><ul>
+<li><p>说明</p>
 <ul>
-<li>CreateDirectory(string path)：创建文件夹</li>
-<li>Delete(string path,true)：删除文件夹 </li>
-<li>Move(string oldpath,string newpath)：剪切文件夹</li>
-<li>String[]  path  =  GetFiles(string path,匹配项)：获得文件夹下与匹配项相同的所有文件</li>
+<li><code>Directory</code>类，操作文件夹</li>
+<li><code>Directory</code>类是一个静态类，在<code>System.IO</code>命名空间下</li>
+<li>静态类不能创建对象</li>
+<li>静态类的成员全部为静态成员，直接类名调用</li>
 </ul>
-<h1><span id="path类-静态类">path类 静态类</span></h1><p><strong>在System.IO命名空间下</strong></p>
-<ul>
-<li>path类：操作路径</li>
-<li>GetFileName()：获得文件名   </li>
-<li>GetFileNameWithoutExtension()：获得除去拓展名的文件名  </li>
-<li>GetExtension()：获得文件的拓展名</li>
-<li>GetDirectoryName()：获取文件夹名</li>
-<li>GetFullPath()：获取绝对路径</li>
-<li>Combine(params,path)：连接路径</li>
-</ul>
-<h1><span id="文件流">文件流</span></h1><blockquote>
-<p>File类的弊端：读写速度太慢，只能读写小文件，因为它是将文件一次性读写出来的</p>
-<p>文件流读写文件时，每次只占用规定的缓存区大小</p>
-</blockquote>
-<p><strong>文件流：FileStream、StreamReader、StreamWriter</strong></p>
-<ul>
-<li>FileStream：用来操作字节的<blockquote>
-<p>方法：Read()、Write()</p>
-</blockquote>
 </li>
-<li>StreamReader 、StreamWriter：用来操作字符的<blockquote>
-<p>方法：Read()、ReadLine()….</p>
-</blockquote>
+<li><p>方法</p>
+<ul>
+<li><code>CreateDirectory(string path)</code>：创建文件夹</li>
+<li><code>Delete(string path,true)</code>：删除文件夹 </li>
+<li><code>Move(string oldpath,string newpath)</code>：剪切文件夹</li>
+<li><code>String[]  path  =  GetFiles(string path,匹配项)</code>：获得文件夹下与匹配项相同的所有文件</li>
+</ul>
 </li>
 </ul>
-<h2><span id="filestream的使用">FileStream的使用</span></h2><p>FlieStream用来操作<strong>字节</strong></p>
-<p><strong>创建FileStream对象：</strong></p>
-<p><code>FileStream fs = new FileStream(path,opreateFile,opreateData);</code></p>
-<blockquote>
-<p>第一个参数path：表示要操作的文件的路径<br><br>第二个参数opreateFile：表示对文件进行怎么的操作<br><br>第三个参数opreateData：表示对文件中的数据进行怎么样的操作</p>
-</blockquote>
+<h1><span id="path类">Path类</span></h1><ul>
+<li><p>说明</p>
 <ul>
-<li>FileMode.OpenOrCreaate：有文件就打开，没有就创建</li>
-<li>FileMode.Append：向文件中追加</li>
-<li>FileAccess.Read：读取文件内容</li>
-<li>FileAccess.Write：写入文件内容</li>
+<li><code>Path</code>类，操作文件路径的</li>
+<li><code>Path</code>类是一个静态类，在<code>System.IO</code>命名空间下</li>
+<li>静态类不能创建对象</li>
+<li>静态类的成员全部为静态成员，直接类名调用</li>
 </ul>
-<p><strong>使用FileStream读取：</strong></p>
-<ul>
-<li>创建一个FileStream对象</li>
+</li>
 </ul>
-<p><code>FileStream fsR = new FileStream(path,FileMode.OpenOrCreate,FileAccess.Read)；</code></p>
-<blockquote>
-<p>Path为读取的文件存储的地址</p>
-</blockquote>
 <ul>
-<li>创建缓存区（字节数组）</li>
+<li><p>方法</p>
+<ul>
+<li><code>GetFileName()</code>：获得文件名   </li>
+<li><code>GetFileNameWithoutExtension()</code>：获得除去拓展名的文件名  </li>
+<li><code>GetExtension()</code>：获得文件的拓展名</li>
+<li><code>GetDirectoryName()</code>：获取文件夹名</li>
+<li><code>GetFullPath()</code>：获取绝对路径</li>
+<li><code>Combine(params,path)</code>：连接路径</li>
 </ul>
-<p><code>byte[] buffer = new buffer[1024*1024*2];</code>    </p>
-<blockquote>
-<p>大小为2M<br>buffer用来缓存读取到的一定量的字节数，每次读取文件时，只占用这么大的内存</p>
-</blockquote>
-<ul>
-<li>从流中读取数据，返回值为int类型</li>
+</li>
 </ul>
-<p><code>int r = fsR.Read(buffer,0,buffer.Length)</code></p>
-<blockquote>
-<p>从流中读取字节块并将数据写入给定的缓存区<br><br>返回值为int类型，表示真实读到的字节数，将读到的数据存储再buffer当中</p>
-</blockquote>
+<h1><span id="文件流">文件流</span></h1><ul>
+<li><p>说明   </p>
 <ul>
+<li><code>File</code>类的弊端：读写速度太慢，只能读写小文件，因为它是将文件一次性读写出来的</li>
+<li><p>文件流读写文件时，每次只占用规定的缓存区大小</p>
+</li>
+<li><p>文件流有：<code>FileStream</code>、<code>StreamReader</code>、<code>StreamWriter</code></p>
+</li>
+</ul>
+</li>
+<li><p><code>FileStream</code>：用来操作字节的</p>
+<blockquote>
+<p>方法：<code>Read()</code>、<code>Write()</code>…</p>
+</blockquote>
+</li>
+<li><p><code>StreamReader</code> 、<code>StreamWriter</code>：用来操作字符的</p>
+<blockquote>
+<p>方法：<code>Read()</code>、<code>ReadLine()</code>…</p>
+</blockquote>
+</li>
+</ul>
+<h2><span id="filestream的使用">FileStream的使用</span></h2><p><code>FlieStream</code>用来操作<strong>字节</strong></p>
+<ul>
+<li><p>创建<code>FileStream</code>对象</p>
+<p>  <code>FileStream fs = new FileStream(path,opreateFile,opreateData);</code></p>
+<ul>
+<li>第一个参数<code>path</code>：表示要操作的文件的路径</li>
+<li>第二个参数<code>opreateFile</code>：表示对文件进行怎么的操作</li>
+<li><p>第三个参数<code>opreateData</code>：表示对文件中的数据进行怎么样的操作</p>
+<ul>
+<li><code>FileMode.OpenOrCreaate</code>：有文件就打开，没有就创建</li>
+<li><code>FileMode.Append</code>：向文件中追加</li>
+<li><code>FileAccess.Read</code>：读取文件内容</li>
+<li><code>FileAccess.Write</code>：写入文件内容</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用<code>FileStream</code>读取</p>
+<ol>
+<li><p>创建一个<code>FileStream</code>对象</p>
+<p> <code>FileStream fsR = new FileStream(path,FileMode.OpenOrCreate,FileAccess.Read)；</code></p>
+<blockquote>
+<p><code>path为</code>读取的文件存储的地址</p>
+</blockquote>
+</li>
+<li><p>创建缓存区（字节数组）</p>
+<p> <code>byte[] buffer = new buffer[1024*1024*2];</code> </p>
+<blockquote>
+<p>大小为2M，<code>buffer</code>用来缓存读取到的一定量的字节数，每次读取文件时，只占用这么大的内存</p>
+</blockquote>
+</li>
+<li><p>从流中读取数据，返回值为<code>int</code>类型</p>
+<p> <code>int r = fsR.Read(buffer,0,buffer.Length)</code></p>
+<blockquote>
+<p>从流中读取字节块并将数据写入给定的缓存区，返回值为<code>int</code>类型，表示真实读到的字节数，将读到的数据存储再<code>buffer</code>当中</p>
+</blockquote>
+</li>
 <li><p>将字节数组转换成字符串</p>
-<pre><code>  string str = Encoding.Default.GetString(buffer,0,r)；
-  Concole.WriteLine(str);
-  Console.ReadKey();
+<pre><code> string str = Encoding.Default.GetString(buffer,0,r)；
+ Concole.WriteLine(str);
+ Console.ReadKey();
 </code></pre></li>
 <li><p>关闭流</p>
+<p> <code>fsR.Close();</code></p>
+</li>
+<li><p>释放流</p>
+<p> <code>fsR.Dispose();</code></p>
+</li>
+</ol>
 </li>
 </ul>
-<p><code>fsR.Close();</code></p>
 <ul>
-<li>释放流</li>
-</ul>
-<p><code>fsR.Dispose();</code></p>
-<p><strong>使用FileStream写入：</strong></p>
-<ul>
-<li>创建FileStream对象</li>
-</ul>
-<p><code>FileStream fsW = new FileStream(path,FileMode.OpenOrCreate,FileAccess.Write);</code></p>
+<li><p>使用<code>FileStream</code>写入</p>
+<ol>
+<li><p>创建<code>FileStream</code>对象</p>
+<p> <code>FileStream fsW = new FileStream(path,FileMode.OpenOrCreate,FileAccess.Write);</code></p>
 <blockquote>
-<p>Path是将要写入的文件地址</p>
+<p><code>path</code>是将要写入的文件地址</p>
 </blockquote>
-<ul>
-<li>将要写入的文件转换成字节</li>
-</ul>
-<p><code>byte[] buffer = Encoding.Default.GetString(s);</code></p>
+</li>
+<li><p>将要写入的文件转换成字节</p>
+<p> <code>byte[] buffer = Encoding.Default.GetString(s);</code></p>
 <blockquote>
 <p>string s = “要写入的内容”;</p>
 </blockquote>
-<ul>
-<li>将文件写入缓存区</li>
+</li>
+<li><p>将文件写入缓存区</p>
+<p> <code>fsW.Write(buffer,0,buffer.Length);</code></p>
+</li>
+<li><p>关闭流</p>
+<p> <code>fsW.Close();</code></p>
+</li>
+<li><p>释放流</p>
+<p> <code>fsW.Dispose();</code></p>
+</li>
+</ol>
+</li>
 </ul>
-<p><code>fsW.Write(buffer,0,buffer.Length);</code></p>
-<ul>
-<li>关闭流</li>
-</ul>
-<p><code>fsW.Close();</code></p>
-<ul>
-<li>释放流</li>
-</ul>
-<p><code>fsW.Dispose();</code></p>
-<p><strong>为了避免关闭和释放流文件，可以使用using(){}：</strong></p>
+<p><strong>为了避免频繁的关闭和释放流文件，可以使用<code>using(){}</code>：</strong></p>
 <pre><code>Using(FileStream fsW = new FileStream(path,FileMode.OpenOrCreate,FileAccess.Write))
 {
     string s = “要写入的内容”;
     byte[] buffer = Encoding.Default.GetString(s);
 }
-</code></pre><h2><span id="streamreader-streamwriter的使用">StreamReader、StreamWriter的使用</span></h2><p>StreamReader和StreamWriter用来操作<strong>字符</strong></p>
+</code></pre><h2><span id="streamreader-streamwriter的使用">StreamReader、StreamWriter的使用</span></h2><p><code>StreamReade</code>r和<code>StreamWriter</code>用来操作<strong>字符</strong></p>
 <ul>
-<li><p>StreamReade读取文件：</p>
+<li><p><code>StreamReade</code>读取文件</p>
 <pre><code>  string  ReadLine();   读取文件第一行数据，并以字符串的形式返回
   bool  EndOfStream()：获取一个值，该值表示当前的流位置是否在流的末尾
 </code></pre></li>
-<li><p>创建StreamReader对象：</p>
+<li><p>创建<code>StreamReader</code>对象</p>
 <pre><code>  StreamReader sr = new StreamReader(path,读取文件的方式);
   读取文件的方式：Encoding.Default
 </code></pre></li>
-<li><p>StreamWriter写入文件：</p>
-<pre><code>  `Write()`
+<li><p><code>StreamWriter</code>写入文件</p>
+<pre><code>  Write()
 </code></pre></li>
 </ul>
 <h1><span id="装箱和拆箱">装箱和拆箱</span></h1><ul>
 <li>装箱：将值类型转换为引用类型</li>
-<li>拆箱：将引用类型转换为值类型</li>
-</ul>
+<li><p>拆箱：将引用类型转换为值类型</p>
 <blockquote>
-<p>值类型：int decimal double bool char enum struct<br><br>引用类型：数组 集合 string object 自定义类</p>
+<p>值类型：<code>int</code>、<code>decimal</code>、<code>double</code>、<code>bool</code>、<code>char</code> 、<code>enum</code>、<code>struct</code></p>
+<p>引用类型：<code>数组</code>、<code>集合</code>、<code>string</code>、<code>object</code>、<code>自定义类</code></p>
 </blockquote>
-<pre><code>例：
-int n = 10;
-object o = n;   //装箱
-int nn = (int)o;  //拆箱
-</code></pre><p>拆箱和装箱很浪费时间，应该避免装箱或拆箱<br>判断两个类型之间是否发生装箱或者装箱，首先要确定这两个类型之间是否存在继承关系：<br>如果存在，则有可能会发生拆箱或者装箱<br>如果不存在，则不会发生装箱或者拆箱</p>
-<p>装箱时使用什么数据类型，拆箱时也必须使用该类型</p>
-<h1><span id="泛型集合">泛型集合</span></h1><ul>
-<li>List&lt;&gt;</li>
+<pre><code>  例：
+  int n = 10;
+  object o = n;   //装箱
+  int nn = (int)o;  //拆箱
+</code></pre></li>
 </ul>
-<p>创建ArrayList，必须引用命名空间：System.Collections</p>
-<pre><code>`ArrayList arr = new ArrayList();`
-</code></pre><p>ArrayList在存储数据时，容易发生装箱和拆箱</p>
-<p>创建List&lt;&gt;不需要引用命名空间<br>    <code>List&lt;int&gt; list = new List&lt;int&gt;();  //集合中只能存放int类型</code></p>
-<p><strong>方法：</strong></p>
+<p><strong>注意：</strong></p>
 <ul>
-<li>Add()：添加元素    只能添加规定类型的元素</li>
-<li>Remove()：移除元素</li>
-<li>Reverse()：反转集合</li>
-<li>Clear()：清除集合</li>
-<li>ToArray()：将集合转换为数组</li>
-<li>ContainsKey(Keys)：判断是否包含key值</li>
-</ul>
-<ul>
-<li><p>Dictionary<key,value></key,value></p>
-<p>  <code>Dictionary&lt;int,string&gt; dic = new Dictionary&lt;int,string&gt;();</code></p>
+<li>拆箱和装箱很浪费时间，应该避免装箱或拆箱</li>
+<li><p>判断两个类型之间是否发生装箱或者装箱，首先要确定这两个类型之间是否存在继承关系：<br>如果存在，则有可能会发生拆箱或者装箱<br>如果不存在，则不会发生装箱或者拆箱</p>
+</li>
+<li><p>装箱时使用什么数据类型，拆箱时也必须使用该类型</p>
 </li>
 </ul>
-<p>遍历Dictionary中的元素一般用<strong>foreach</strong></p>
-<pre><code>foreach(var item in dic.keys)
-{
-    Console.Write(“{0}-----{1}”,item,dic[item])；
+<h1><span id="泛型集合">泛型集合</span></h1><ol>
+<li><p>ArrayList 集合</p>
+<ul>
+<li><p>创建<code>ArrayList</code>，必须引用命名空间：<code>System.Collections</code></p>
+<p>  <code>ArrayList arr = new ArrayList();</code></p>
+</li>
+<li><p><code>ArrayList</code>在存储数据时，容易发生装箱和拆箱</p>
+</li>
+</ul>
+</li>
+<li><p>List&lt;&gt; 泛型集合</p>
+<ul>
+<li><p>创建<code>List&lt;&gt;</code>不需要引用命名空间</p>
+<p>  <code>List&lt;int&gt; list = new List&lt;int&gt;();  //集合中只能存放int类型</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>* 方法
 
-}
-</code></pre><p>KeyValuePair：键值对</p>
-<pre><code>foreach(KeyValuePair&lt;int,string&gt; item in dic)
-{
-    Console.Write(“{0}-----{1}”,item.Key,item.Value)；
-}
-</code></pre><h1><span id="多态">多态</span></h1><blockquote>
+    - `Add()`：添加元素    只能添加规定类型的元素
+    - `Remove()`：移除元素
+    - `Reverse()`：反转集合
+    - `Clear()`：清除集合
+    - `ToArray()`：将集合转换为数组
+    - `ContainsKey(Keys)`：判断是否包含key值
+</code></pre><ol>
+<li><p>Dictionary<key,value> 字典</key,value></p>
+<p> <code>Dictionary&lt;int,string&gt; dic = new Dictionary&lt;int,string&gt;();</code></p>
+<ul>
+<li><p>遍历 <code>Dictionary</code>中的元素一般用<strong><code>foreach</code></strong></p>
+<pre><code>  foreach(var item in dic.keys)
+  {
+      Console.Write(“{0}-----{1}”,item,dic[item])；
+
+  }
+</code></pre></li>
+<li><p>键值对<code>KeyValuePair</code></p>
+<pre><code>  foreach(KeyValuePair&lt;int,string&gt; item in dic)
+  {
+
+      Console.Write(“{0}-----{1}”,item.Key,item.Value)；
+  }
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<h1><span id="多态">多态</span></h1><blockquote>
 <p><strong>概念：让一个对象能够表现出多种的状态（类型）</strong></p>
 </blockquote>
 <p>实现多态的三种方法：</p>
-<ul>
-<li><strong>虚方法</strong></li>
-</ul>
+<ol>
+<li><p><strong>虚方法</strong></p>
 <p>步骤：</p>
 <blockquote>
 <ol>
-<li>将父类的方法标记为虚方法，使用关键字virtual，作用是可以使这个方法可以被子类重写一遍</li>
-<li>在子类的方法前面加override</li>
+<li>将父类的方法标记为虚方法，使用关键字<code>virtual</code>，作用是可以使这个方法可以被子类重写一遍</li>
+<li>在子类的方法前面加<code>override</code></li>
 </ol>
 </blockquote>
+</li>
+</ol>
+<ol>
+<li><p><strong>抽象类</strong></p>
 <ul>
-<li><strong>抽象类</strong></li>
+<li>标记一个类为抽象类，使用关键字<code>abstract</code></li>
+<li>抽象类不能创建的对象</li>
+<li><p>抽象方法：没有方法体的方法且被<code>abstract</code>修饰的方法</p>
+<ul>
+<li><p>如果一个类继承了抽象类，必须重写抽象类里面的抽象方法，使用关键字<code>override</code></p>
+<pre><code>1、抽象成员必须标记为abstract，并且不能有任何的实现
+2、抽象成员必须在抽象类中
+3、抽象类不能实例化
+4、子类继承抽象类后，必须把父类中所有的抽象成员重写（除非子类也是一个抽象类，可以不重写）
+5、抽象成员的访问修饰符不能是private
+6、在抽象类中可以包含实例成员
+7、抽象类是有构造函数的，虽然不能被实例化
+8、如果抽象父类的抽象方法中有参数，则继承这个抽象父类的子类在重写父类的方法的时候必须传入对应的参数；如果抽象父类的抽象方法中有返回值，则子类在重写这个抽象方法时，也必须要有返回值
+</code></pre></li>
 </ul>
-<p>标记一个类为抽象类，使用关键字abstract<br>抽象类不能创建的对象<br>抽象方法：没有方法体的方法且被abstract修饰的方法<br>  如果一个类继承了抽象类，必须重写抽象类里面的抽象方法，使用关键字override</p>
-<p>1、抽象成员必须标记为abstract，并且不能有任何的实现<br>2、抽象成员必须在抽象类中<br>3、抽象类不能实例化<br>4、子类继承抽象类后，必须把父类中所有的抽象成员重写（除非子类也是一个抽象类，可以不重写）<br>5、抽象成员的访问修饰符不能是private<br>6、在抽象类中可以包含实例成员<br>7、抽象类是有构造函数的，虽然不能被实例化<br>8、如果抽象父类的抽象方法中有参数，则继承这个抽象父类的子类在重写父类的方法的时候必须传入对应的参数；如果抽象父类的抽象方法中有返回值，则子类在重写这个抽象方法时，也必须要有返回值</p>
 <p>如果父类中的方法有默认的实现，并且父类需要被实例化，可以考虑父类定义成一个普通类，用虚方法实现多态<br>如果父类中的方法没有默认实现，父类也不需要实例化，则可以将该类定义成抽象类</p>
-<p>+<strong> 接口</strong></p>
-<h1><span id="访问修饰符">访问修饰符</span></h1><ul>
-<li>public：公共的，公开的</li>
-<li>private：私有的，只能在当前类的内部访问</li>
-<li>protected：受保护的，只能在当前类以及该类的子类中访问</li>
-<li>internal：只能在当前项目中访问</li>
-<li>protecte internal：protected+internal</li>
+</li>
 </ul>
-<p><strong>修饰类的访问修饰符只有两个：public、 internal</strong></p>
+</li>
+</ol>
+<ol>
+<li><strong>接口</strong></li>
+</ol>
+<h1><span id="访问修饰符">访问修饰符</span></h1><ul>
+<li><code>public</code>：公共的，公开的</li>
+<li><code>private</code>：私有的，只能在当前类的内部访问</li>
+<li><code>protected</code>：受保护的，只能在当前类以及该类的子类中访问</li>
+<li><code>internal</code>：只能在当前项目中访问</li>
+<li><code>protecte internal</code>：protected+internal</li>
+</ul>
+<p><strong>修饰类的访问修饰符只有两个：<code>public</code>、 <code>internal</code></strong></p>
 <h1><span id="设计模式简单工厂设计模式">设计模式：简单工厂设计模式</span></h1><h1><span id="序列化和反序列化">序列化和反序列化</span></h1><ul>
 <li>序列化：将对象转换为二进制</li>
 <li>反序列化：将二进制转换为对象</li>
 </ul>
 <p>作用：传输数据</p>
 <ul>
-<li>序列化对象：BinaryFormatter</li>
-<li>序列化方法：Serialize()</li>
-<li>反序列化方法：Deserialize()</li>
+<li>序列化对象：<code>BinaryFormatter</code></li>
+<li>序列化方法：<code>Serialize()</code></li>
+<li>反序列化方法：<code>Deserialize()</code></li>
 </ul>
 <p>序列化和反序列化需要与流结合使用：</p>
 <ol>
-<li>将要序列化的对象所在的类标记为可以序列化，使用 [Serializable]</li>
-<li>创建序列化对象BinaryFormatter bf = new BinaryFormatter();</li>
-<li>序列化：调用Serialize(写入的流对象,需要序列化的对象)</li>
-<li>反序列化：调用Deserialize(读取的流对象)</li>
+<li>将要序列化的对象所在的类标记为可以序列化，使用 <code>[Serializable]</code></li>
+<li>创建序列化对象<code>BinaryFormatter bf = new BinaryFormatter();</code></li>
+<li>序列化：调用<code>Serialize(写入的流对象,需要序列化的对象)</code></li>
+<li>反序列化：调用<code>Deserialize(读取的流对象)</code></li>
 </ol>
-<h1><span id="guid">Guid</span></h1><p>Guid.NewGuid()：能创建一个独一无二的ID<br>string s = Guid.NewGuid().ToString()；</p>
-<h1><span id="接口">接口</span></h1><ul>
-<li>单继承：一个类只能有一个接口</li>
-<li>多接口：一个类可以有多个接口</li>
+<h1><span id="guid">Guid</span></h1><ul>
+<li><p>生成ID</p>
+<p>  <code>Guid.NewGuid()</code>：能创建一个独一无二的ID</p>
+</li>
+<li><p>创建</p>
+<p>  <code>string s = Guid.NewGuid().ToString();</code>    </p>
+</li>
 </ul>
-<p>定义接口：</p>
-<pre><code>[public] interface 接口名称
-{
-    接口成员;
-}
+<h1><span id="接口">接口</span></h1><p>单继承：一个类只能有一个接口</p>
+<p>多接口：一个类可以有多个接口</p>
+<ul>
+<li><p>定义接口</p>
+<pre><code>  [public] interface 接口名称
+  {
+      接口成员;
+  }
 </code></pre><ul>
 <li>接口中不能有实例方法；</li>
 <li>抽象类中可以有抽象方法，也可以有实例方法；</li>
-<li>接口中的成员默认为public，普通的类中的成员默认为private</li>
+<li>接口中的成员默认为<code>public</code>，普通的类中的成员默认为<code>private</code></li>
 </ul>
-<blockquote>
-<p>子类必须重写抽象类中的抽象方法，重写方法使用关键字override<br><br>子类必须实现接口中的抽象方法，不需要使用关键字override</p>
-</blockquote>
+</li>
+</ul>
+<pre><code>&gt;子类必须重写抽象类中的抽象方法，重写方法使用关键字`override`
+&gt;
+&gt;子类必须实现接口中的抽象方法，不需要使用关键字`override`
+</code></pre><ul>
+<li><p>说明</p>
 <ol>
 <li>接口是一种规划，只要一个类继承了一个接口，就必须实现接口中的所有成员</li>
 <li>接口中的成员不能加“访问修饰符”，接口中的成员访问修饰符为public，不能修改</li>
@@ -1067,43 +1163,52 @@ int nn = (int)o;  //拆箱
 <li>接口的命名：一般以I开头，以able结尾</li>
 <li>接口中可以有返回值或者参数</li>
 </ol>
-<p>实现接口中的方法用：void 接口名.方法(){}</p>
-<pre><code>例子：
-void IEatable.Eat(){}
-</code></pre><p><strong>多态：一个变量表现出多种状态</strong><br><br><strong>继承：声明一个父类，展示多个子类的特性</strong></p>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>实现接口中的方法用</p>
+<p><code>void</code> 接口名.方法(){}</p>
+<p>  例子：<br>  void IEatable.Eat(){}</p>
+</li>
+</ul>
+<p><strong>多态：一个变量表现出多种状态</strong><br><strong>继承：声明一个父类，展示多个子类的特性</strong></p>
 <p>只要一个类，继承或者实现就可以这样写<br>还有一个虚方法也可以这样写</p>
 <p><code>Person p = new Student();</code></p>
 <p><strong>抽象类和接口都不允许创建对象</strong><br><strong>静态类也不能创建对象</strong></p>
 <h1><span id="值传递和引用传递">值传递和引用传递</span></h1><ul>
-<li>值类型：int、double、decimal、bool、char、enum、struct  都继承于valueType</li>
-<li>引用类型：string 数组 集合 自定义类 object 接口 </li>
-</ul>
+<li>值类型：<code>int</code>、<code>double</code>、<code>decimal</code>、<code>bool</code>、<code>char</code>、<code>enum</code>、<code>struct</code>  都继承于<code>valueType</code></li>
+<li><p>引用类型：<code>string</code> 数组 集合 自定义类 object 接口 </p>
 <blockquote>
 <p>值传递：值类型在赋值的时候，传递的是值本身<br><br>引用类型：引用类型在赋值的时候，传递的是引用（地址）</p>
 </blockquote>
-<h1><span id="重写父类中的方法">重写父类中的方法</span></h1><ul>
-<li>Tostring()</li>
-<li>Equals()</li>
+</li>
+</ul>
+<h1><span id="重写父类中的方法">重写父类中的方法</span></h1><p>常被重写的方法：</p>
+<ul>
+<li><code>Tostring()</code></li>
+<li><code>Equals()</code></li>
 </ul>
 <h1><span id="md5加密">MD5加密</span></h1><p>密码的保存方式：</p>
 <ul>
-<li>明文保持</li>
-<li>MD5值保持</li>
-</ul>
+<li>明文保存</li>
+<li><p><code>MD5</code>值保存</p>
 <blockquote>
-<p>MD5本质上就是一个算法，且算法是不可逆的</p>
+<p><code>MD5</code>本质上就是一个算法，且算法是不可逆的</p>
 </blockquote>
+</li>
+</ul>
 <p><strong>使用步骤：</strong></p>
 <ol>
-<li><p>创建MD5对象</p>
+<li><p>创建<code>MD5</code>对象</p>
 <ul>
-<li>MD5是一个抽象类，但是类中有2个静态的方法</li>
-<li>MD5 md = MD5.Create();  创建MD5对象</li>
+<li><code>MD5</code>是一个抽象类，但是类中有2个静态的方法</li>
+<li><code>MD5 md = MD5.Create();</code>  创建<code>MD5</code>对象</li>
 </ul>
 </li>
-<li><p>调用ComputeHash(string str)，返回值为一个字节数组</p>
+<li><p>调用<code>ComputeHash(string str)</code>，返回值为一个字节数组</p>
 </li>
-<li><p>将字节数组转换成字符串 Encoding.Default.GetString(byte)</p>
+<li><p>将字节数组转换成字符串 <code>Encoding.Default.GetString(byte)</code></p>
 </li>
 </ol>
 <h1><span id="encoding类">Encoding类</span></h1><ul>
@@ -1114,7 +1219,7 @@ void IEatable.Eat(){}
 <p>  <code>Encoding.Default.GetString(byte[] by)</code></p>
 </li>
 </ul>
-<p>Default为默认的读取方式，还可以换成UFT-8、Unicode…</p>
+<p><code>Default</code>为默认的读取方式，还可以换成<code>UFT-8</code>、<code>Unicode</code>…</p>
 <ul>
 <li><code>ToString()</code>：是什么就转换成什么</li>
 <li><code>GetString()</code>：转换成有意义的字符串</li>
@@ -1313,7 +1418,7 @@ void IEatable.Eat(){}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">常量\枚举\结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">枚举类型与int类型和string类型之间的转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">变量的作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">out参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">ref参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">params参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">方法的重载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">8.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">9.</span> <span class="nav-text">this关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">10.</span> <span class="nav-text">类成员</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">11.</span> <span class="nav-text">修饰符 private</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">12.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">12.1.</span> <span class="nav-text">三种属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">13.</span> <span class="nav-text">构造函数（构造方法）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">14.</span> <span class="nav-text">值类型和引用类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">15.</span> <span class="nav-text">静态和非静态的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">16.</span> <span class="nav-text">垃圾回收期和析构函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">17.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">18.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">19.</span> <span class="nav-text">new 关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">20.</span> <span class="nav-text">里氏转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">21.</span> <span class="nav-text">as/is 关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">22.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">22.1.</span> <span class="nav-text">ArrayList：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">22.2.</span> <span class="nav-text">集合的长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">22.3.</span> <span class="nav-text">Hashtable</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">23.</span> <span class="nav-text">var 推断类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">24.</span> <span class="nav-text">File类 静态类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">25.</span> <span class="nav-text">导入命名空间的快捷方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">26.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">27.</span> <span class="nav-text">Directory类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">28.</span> <span class="nav-text">path类 静态类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">29.</span> <span class="nav-text">文件流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">29.1.</span> <span class="nav-text">FileStream的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">29.2.</span> <span class="nav-text">StreamReader、StreamWriter的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">30.</span> <span class="nav-text">装箱和拆箱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">31.</span> <span class="nav-text">泛型集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">32.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">33.</span> <span class="nav-text">访问修饰符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">34.</span> <span class="nav-text">设计模式：简单工厂设计模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">35.</span> <span class="nav-text">序列化和反序列化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">36.</span> <span class="nav-text">Guid</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">37.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">38.</span> <span class="nav-text">值传递和引用传递</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">39.</span> <span class="nav-text">重写父类中的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">40.</span> <span class="nav-text">MD5加密</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">41.</span> <span class="nav-text">Encoding类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">42.</span> <span class="nav-text">密封类和部分类</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">常量\枚举\结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">枚举类型与int类型和string类型之间的转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">变量的作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">out参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">ref参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">params参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">方法的重载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">8.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">9.</span> <span class="nav-text">this关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">10.</span> <span class="nav-text">类成员</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">11.</span> <span class="nav-text">修饰符 private</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">12.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">12.1.</span> <span class="nav-text">三种属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">13.</span> <span class="nav-text">构造函数（构造方法）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">14.</span> <span class="nav-text">值类型和引用类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">15.</span> <span class="nav-text">静态和非静态的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">16.</span> <span class="nav-text">垃圾回收期和析构函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">17.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">18.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">19.</span> <span class="nav-text">new 关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">20.</span> <span class="nav-text">里氏转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">21.</span> <span class="nav-text">as/is 关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">22.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">22.1.</span> <span class="nav-text">ArrayList：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">22.2.</span> <span class="nav-text">集合的长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">22.3.</span> <span class="nav-text">Hashtable</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">23.</span> <span class="nav-text">var 推断类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">24.</span> <span class="nav-text">File类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">25.</span> <span class="nav-text">导入命名空间的快捷方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">26.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">27.</span> <span class="nav-text">Directory类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">28.</span> <span class="nav-text">Path类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">29.</span> <span class="nav-text">文件流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">29.1.</span> <span class="nav-text">FileStream的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">29.2.</span> <span class="nav-text">StreamReader、StreamWriter的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">30.</span> <span class="nav-text">装箱和拆箱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">31.</span> <span class="nav-text">泛型集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">32.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">33.</span> <span class="nav-text">访问修饰符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">34.</span> <span class="nav-text">设计模式：简单工厂设计模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">35.</span> <span class="nav-text">序列化和反序列化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">36.</span> <span class="nav-text">Guid</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">37.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">38.</span> <span class="nav-text">值传递和引用传递</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">39.</span> <span class="nav-text">重写父类中的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">40.</span> <span class="nav-text">MD5加密</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">41.</span> <span class="nav-text">Encoding类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">42.</span> <span class="nav-text">密封类和部分类</span></a></li></ol></div>
             
 
           </div>
@@ -1347,7 +1452,7 @@ void IEatable.Eat(){}
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">13.8k</span>
+    <span title="Site words total count">13.9k</span>
   
 </div>
 
