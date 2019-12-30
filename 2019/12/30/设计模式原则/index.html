@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Chenia&#39;s Blog">
 <meta property="og:description" content="前言设计模式：可以理解为一种解决方案。在面向对象语言的开发过程中，会遇到不同的场景和问题，将解决这些问题的经验不断的积累下来，就形成现在的设计模式。 设计模式原则：在面向对象语言的开发过程中，推荐的一些指导性的原则（建议），让程序更加的合理。 单一职责原则单一职责原则（Single Responsibility Principle）:当类T负责两个不同的职责：职责1、职责2，由于职责1需求发生改变">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-30T11:13:50.943Z">
+<meta property="og:updated_time" content="2019-12-30T12:26:59.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式的原则">
 <meta name="twitter:description" content="前言设计模式：可以理解为一种解决方案。在面向对象语言的开发过程中，会遇到不同的场景和问题，将解决这些问题的经验不断的积累下来，就形成现在的设计模式。 设计模式原则：在面向对象语言的开发过程中，推荐的一些指导性的原则（建议），让程序更加的合理。 单一职责原则单一职责原则（Single Responsibility Principle）:当类T负责两个不同的职责：职责1、职责2，由于职责1需求发生改变">
@@ -302,7 +302,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-12-30T19:13:50+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-30T20:26:59+08:00">
                 2019-12-30
               </time>
             
@@ -330,7 +330,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  203
+                  593
                 </span>
               
 
@@ -358,7 +358,26 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>设计模式：可以理解为一种解决方案。在面向对象语言的开发过程中，会遇到不同的场景和问题，将解决这些问题的经验不断的积累下来，就形成现在的设计模式。</p>
 <p>设计模式原则：在面向对象语言的开发过程中，推荐的一些指导性的原则（建议），让程序更加的合理。</p>
 <h1 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h1><p>单一职责原则（Single Responsibility Principle）:当类T负责两个不同的职责：职责1、职责2，由于职责1需求发生改变而需要修改类T时，有可能会导致原本运行正常的职责2功能发生故障；因此，单一职责原则建议一个类只负责一个职责。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>
+<h1 id="里氏替换原则"><a href="#里氏替换原则" class="headerlink" title="里氏替换原则"></a>里氏替换原则</h1><p>里氏替换原则（Liskov Substitution Principle）:任何使用父类的地方，都可以透明的使用其子类。子类继承父类后，子类拥有父类的一切属性和行为，任何父类出现的地方都可以用子类来代替。里氏替换原则就是告诉我们如何使用继承。</p>
+<ol>
+<li>当子类能拥有父类的一切属性和行为时，可以使用继承，当父类拥有某种属性而子类不拥有时，尽应断掉继承。</li>
+<li>子类可以扩展其他内容，子类可以替代父类，但父类替代不了子类。</li>
+<li>父类已经实现的方法，子类不要再修改，否则违反了里氏替换原则，这里和多态有冲突。<ul>
+<li>当继承是为了减少代码的重写，那么父类的内容尽量不要修改</li>
+<li>当继承是为了多态，那么子类需要override父类的方法</li>
+</ul>
+</li>
+</ol>
+<h1 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h1><p>迪米特法则（Law Of Demeter）：又叫最小知道原则，一个对象应该对其他的对象保持最少的了解，降低类之间的组合关系。高内聚，低耦合。</p>
+<h2 id="耦合的方式"><a href="#耦合的方式" class="headerlink" title="耦合的方式"></a>耦合的方式</h2><ol>
+<li>纵向关系：继承/接口</li>
+<li>横向关系：聚合&gt;组合&gt;关联&gt;依赖</li>
+</ol>
+<p><strong>组合的定义</strong></p>
+<p>当一个类中存在一个或者多个其他类，作为其属性，字段，参数，返回值等，称为组合。</p>
+<p><strong>依赖的定义</strong></p>
+<p>当一个类的方法中包含其他类，这种称之为依赖。</p>
+
       
     </div>
     
@@ -544,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单一职责原则"><span class="nav-number">2.</span> <span class="nav-text">单一职责原则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.1.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单一职责原则"><span class="nav-number">2.</span> <span class="nav-text">单一职责原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#里氏替换原则"><span class="nav-number">3.</span> <span class="nav-text">里氏替换原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迪米特法则"><span class="nav-number">4.</span> <span class="nav-text">迪米特法则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#耦合的方式"><span class="nav-number">4.1.</span> <span class="nav-text">耦合的方式</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -578,7 +597,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.6k</span>
+    <span title="Site words total count">16k</span>
   
 </div>
 
