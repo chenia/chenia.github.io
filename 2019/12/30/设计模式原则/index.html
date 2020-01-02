@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Chenia&#39;s Blog">
 <meta property="og:description" content="前言设计模式：可以理解为一种解决方案。在面向对象语言的开发过程中，会遇到不同的场景和问题，将解决这些问题的经验不断的积累下来，就形成现在的设计模式。 设计模式原则：在面向对象语言的开发过程中，推荐的一些指导性的原则（建议），让程序更加的合理。 单一职责原则单一职责原则（Single Responsibility Principle）:当类T负责两个不同的职责：职责1、职责2，由于职责1需求发生改变">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-30T12:26:59.311Z">
+<meta property="og:updated_time" content="2020-01-02T11:54:52.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式的原则">
 <meta name="twitter:description" content="前言设计模式：可以理解为一种解决方案。在面向对象语言的开发过程中，会遇到不同的场景和问题，将解决这些问题的经验不断的积累下来，就形成现在的设计模式。 设计模式原则：在面向对象语言的开发过程中，推荐的一些指导性的原则（建议），让程序更加的合理。 单一职责原则单一职责原则（Single Responsibility Principle）:当类T负责两个不同的职责：职责1、职责2，由于职责1需求发生改变">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-12-30T20:26:59+08:00">
-                2019-12-30
+              <time title="更新于" itemprop="dateModified" datetime="2020-01-02T19:54:52+08:00">
+                2020-01-02
               </time>
             
           </span>
@@ -330,7 +330,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  593
+                  890
                 </span>
               
 
@@ -377,6 +377,33 @@
 <p>当一个类中存在一个或者多个其他类，作为其属性，字段，参数，返回值等，称为组合。</p>
 <p><strong>依赖的定义</strong></p>
 <p>当一个类的方法中包含其他类，这种称之为依赖。</p>
+<h1 id="依赖倒置原则"><a href="#依赖倒置原则" class="headerlink" title="依赖倒置原则"></a>依赖倒置原则</h1><p>依赖倒置原则（Dependence Inversion Principle）:上层模块不应该直接依赖下层模块，二者应该通过抽象依赖。</p>
+<p>在申明一些底层模块时，应该都有抽象。为了以后可以进行扩展。</p>
+<p>变量的声明，尽量面向抽象或者基类，如<code>AbstractPhone phone = new IPhone();</code></p>
+<p>情景：学生使用手机</p>
+<ul>
+<li>学生：上层</li>
+<li>手机：下层</li>
+</ul>
+<p><strong>直接依赖：</strong></p>
+<ul>
+<li>学生使用小米、华为、vivo…</li>
+<li>增加一款手机，需要修改学生（上层）</li>
+</ul>
+<p><strong>抽象依赖：</strong></p>
+<ul>
+<li>学生使用手机</li>
+<li>小米、华为继承手机</li>
+<li>增加一款手机不需要修改学生</li>
+</ul>
+<p>依赖倒置原则的好处：</p>
+<ul>
+<li>依赖倒置原则可理解为是面向抽象编程，没有将程序写死，更灵活，更具有扩展性；</li>
+<li>面向抽象编程，可以传递不同的子类</li>
+</ul>
+<h1 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h1><p>接口隔离原则（Interface Segregation Principle）：一个类对另一个类的依赖应该建立在最小的接口上。</p>
+<p>接口隔离原则介绍的是该怎么定义一个接口，一个接口中应该包含哪些内容。</p>
+<h1 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h1><p>开闭原则（Open Closed Principle）：</p>
 
       
     </div>
@@ -567,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单一职责原则"><span class="nav-number">2.</span> <span class="nav-text">单一职责原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#里氏替换原则"><span class="nav-number">3.</span> <span class="nav-text">里氏替换原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迪米特法则"><span class="nav-number">4.</span> <span class="nav-text">迪米特法则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#耦合的方式"><span class="nav-number">4.1.</span> <span class="nav-text">耦合的方式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单一职责原则"><span class="nav-number">2.</span> <span class="nav-text">单一职责原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#里氏替换原则"><span class="nav-number">3.</span> <span class="nav-text">里氏替换原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迪米特法则"><span class="nav-number">4.</span> <span class="nav-text">迪米特法则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#耦合的方式"><span class="nav-number">4.1.</span> <span class="nav-text">耦合的方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖倒置原则"><span class="nav-number">5.</span> <span class="nav-text">依赖倒置原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口隔离原则"><span class="nav-number">6.</span> <span class="nav-text">接口隔离原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开闭原则"><span class="nav-number">7.</span> <span class="nav-text">开闭原则</span></a></li></ol></div>
             
 
           </div>
@@ -601,7 +628,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">16k</span>
+    <span title="Site words total count">16.3k</span>
   
 </div>
 
